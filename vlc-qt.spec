@@ -164,7 +164,8 @@ Headers and development libraries for vlc-qt widgets library.
 %build
 %cmake \
 	-DWITH_QML:BOOL=ON \
-	-DWITH_WIDGETS:BOOL=ON
+	-DWITH_WIDGETS:BOOL=ON \
+	-DCMAKE_CXX_FLAGS_RELEASE=
 # Parallel build is broken in 0.8.1
 make
 
