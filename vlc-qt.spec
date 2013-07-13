@@ -12,6 +12,7 @@ Patch0:		vlc-qt-0.8.1-linkage.patch
 Patch1:		vlc-qt-0.8.1-pkgconfig.patch
 BuildRequires:	cmake
 BuildRequires:	qt4-devel
+BuildRequires:	pkgconfig(libvlc)
 
 %description
 VLC-Qt is a free library used to connect Qt and libvlc libraries.
