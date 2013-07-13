@@ -1,0 +1,24 @@
+diff -urN vlc-qt-0.8.1/src/qml/CMakeLists.txt vlc-qt-0.8.1-patched/src/qml/CMakeLists.txt
+--- vlc-qt-0.8.1/src/qml/CMakeLists.txt	2013-04-28 00:48:39.000000000 +1100
++++ vlc-qt-0.8.1-patched/src/qml/CMakeLists.txt	2013-07-13 22:38:25.580795983 +1100
+@@ -113,7 +113,7 @@
+ IF(QT5)
+     QT5_USE_MODULES(${VLCQT_QML_SHARED} Quick)
+ ELSE(QT5)
+-    TARGET_LINK_LIBRARIES(${VLCQT_QML_SHARED} ${QT_LIBRARIES})
++    TARGET_LINK_LIBRARIES(${VLCQT_QML_SHARED} ${QT_LIBRARIES} ${LIBVLC_LIBRARY} ${VLCQT_BINARY})
+ ENDIF(QT5)
+ 
+ 
+diff -urN vlc-qt-0.8.1/src/widgets/CMakeLists.txt vlc-qt-0.8.1-patched/src/widgets/CMakeLists.txt
+--- vlc-qt-0.8.1/src/widgets/CMakeLists.txt	2013-04-28 00:48:39.000000000 +1100
++++ vlc-qt-0.8.1-patched/src/widgets/CMakeLists.txt	2013-07-13 22:00:05.234871747 +1100
+@@ -107,7 +107,7 @@
+     QT5_USE_MODULES(${VLCQT_WIDGETS_SHARED} Widgets)
+     TARGET_LINK_LIBRARIES(${VLCQT_WIDGETS_SHARED} ${VLCQT_BINARY})
+ ELSE(QT5)
+-    TARGET_LINK_LIBRARIES(${VLCQT_WIDGETS_SHARED} ${QT_LIBRARIES} ${VLCQT_BINARY})
++    TARGET_LINK_LIBRARIES(${VLCQT_WIDGETS_SHARED} ${QT_LIBRARIES} ${VLCQT_BINARY} -lX11)
+ ENDIF(QT5)
+ 
+ # On Mac OS X, the VideoWidget uses Objective-C and Cocoa

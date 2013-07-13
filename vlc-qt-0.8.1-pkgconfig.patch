@@ -1,0 +1,53 @@
+diff -urN vlc-qt-0.8.1/pkgconfig/CMakeLists.txt vlc-qt-0.8.1-patched/pkgconfig/CMakeLists.txt
+--- vlc-qt-0.8.1/pkgconfig/CMakeLists.txt	2013-04-28 00:48:39.000000000 +1100
++++ vlc-qt-0.8.1-patched/pkgconfig/CMakeLists.txt	2013-07-13 22:48:13.578606195 +1100
+@@ -24,7 +24,21 @@
+     @ONLY
+ )
+ 
++CONFIGURE_FILE(
++    "${CMAKE_SOURCE_DIR}/pkgconfig/libvlc-qt-qml.pc.in"
++    "${CMAKE_BINARY_DIR}/pkgconfig/libvlc-qt-qml.pc"
++    @ONLY
++)
++
++CONFIGURE_FILE(
++    "${CMAKE_SOURCE_DIR}/pkgconfig/libvlc-qt-widgets.pc.in"
++    "${CMAKE_BINARY_DIR}/pkgconfig/libvlc-qt-widgets.pc"
++    @ONLY
++)
++
+ ################
+ # Installation #
+ ################
+ INSTALL(FILES ${CMAKE_BINARY_DIR}/pkgconfig/libvlc-qt.pc DESTINATION ${CMAKE_INSTALL_PREFIX}/lib${LIB_SUFFIX}/pkgconfig)
++INSTALL(FILES ${CMAKE_BINARY_DIR}/pkgconfig/libvlc-qt-qml.pc DESTINATION ${CMAKE_INSTALL_PREFIX}/lib${LIB_SUFFIX}/pkgconfig)
++INSTALL(FILES ${CMAKE_BINARY_DIR}/pkgconfig/libvlc-qt-widgets.pc DESTINATION ${CMAKE_INSTALL_PREFIX}/lib${LIB_SUFFIX}/pkgconfig)
+diff -urN vlc-qt-0.8.1/pkgconfig/libvlc-qt-qml.pc.in vlc-qt-0.8.1-patched/pkgconfig/libvlc-qt-qml.pc.in
+--- vlc-qt-0.8.1/pkgconfig/libvlc-qt-qml.pc.in	1970-01-01 10:00:00.000000000 +1000
++++ vlc-qt-0.8.1-patched/pkgconfig/libvlc-qt-qml.pc.in	2013-07-13 22:48:46.739106542 +1100
+@@ -0,0 +1,10 @@
++prefix=@CMAKE_INSTALL_PREFIX@
++exec_prefix=${prefix}
++libdir=${exec_prefix}/lib
++includedir=${prefix}/include
++
++Name: libvlc-qt
++Description: Qt and libvlc connector library (QML)
++Version: @VLCQT_VERSION_MAJOR@.@VLCQT_VERSION_MINOR@.@VLCQT_VERSION_BUGFIX@
++Libs: -L${libdir} -lvlc-qt -lvlc-qt-qml
++Cflags: -I${includedir}
+diff -urN vlc-qt-0.8.1/pkgconfig/libvlc-qt-widgets.pc.in vlc-qt-0.8.1-patched/pkgconfig/libvlc-qt-widgets.pc.in
+--- vlc-qt-0.8.1/pkgconfig/libvlc-qt-widgets.pc.in	1970-01-01 10:00:00.000000000 +1000
++++ vlc-qt-0.8.1-patched/pkgconfig/libvlc-qt-widgets.pc.in	2013-07-13 22:49:07.989427366 +1100
+@@ -0,0 +1,10 @@
++prefix=@CMAKE_INSTALL_PREFIX@
++exec_prefix=${prefix}
++libdir=${exec_prefix}/lib
++includedir=${prefix}/include
++
++Name: libvlc-qt
++Description: Qt and libvlc connector library (widgets)
++Version: @VLCQT_VERSION_MAJOR@.@VLCQT_VERSION_MINOR@.@VLCQT_VERSION_BUGFIX@
++Libs: -L${libdir} -lvlc-qt -lvlc-qt-widgets
++Cflags: -I${includedir}
