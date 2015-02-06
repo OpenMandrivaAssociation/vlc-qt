@@ -1,7 +1,7 @@
 Summary:	A simple library to connect Qt application with libvlc
 Name:		vlc-qt
 Version:	0.8.1
-Release:	2
+Release:	3
 License:	GPLv3+
 Group:		System/Libraries
 Url:		http://projects.tano.si/library
