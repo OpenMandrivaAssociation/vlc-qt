@@ -32,6 +32,7 @@ BuildRequires:	pkgconfig(Qt5QuickTest)
 BuildRequires:	pkgconfig(Qt5Test)
 BuildRequires:	pkgconfig(Qt5Widgets)
 BuildRequires:	pkgconfig(libvlc)
+BuildRequires:  qmake5
 
 %description
 VLC-Qt is a free library used to connect Qt and libvlc libraries.
