@@ -18,7 +18,7 @@ Version:	1.1.1
 Release:	1
 License:	GPLv3+
 Group:		System/Libraries
-Url:		http://projects.tano.si/library
+Url:		https://projects.tano.si/library
 Source:		https://github.com/vlc-qt/vlc-qt/archive/%{name}-%{version}.tar.gz
 #Patch0:		vlc-qt-0.8.1-linkage.patch
 # Also build pkgconfig files for QML and widgets libraries
